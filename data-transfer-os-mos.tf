@@ -126,6 +126,4 @@ resource "yandex_datatransfer_transfer" "os-mos-transfer" {
   provisioner "local-exec" {
     command = "yc --profile ${local.profile_name} datatransfer transfer activate ${yandex_datatransfer_transfer.os-mos-transfer[count.index].id}"
   }
-
-
 }
