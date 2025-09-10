@@ -6,7 +6,7 @@
 # Specify the following settings:
 locals {
   # Source Managed Service for OpenSearch cluster settings:
-  mos_version        = "" # Set desired version of the OpenSearch. For available versions, see the documentation main page: https://yandex.cloud/en/docs/managed-opensearch/.
+  mos_version        = "" # Set desired version of the OpenSearch
   mos_admin_password = "" # Set a password for the OpenSearch admin user
 
   # Specify these settings ONLY AFTER the clusters are created. Then run the "terraform apply" command again.
