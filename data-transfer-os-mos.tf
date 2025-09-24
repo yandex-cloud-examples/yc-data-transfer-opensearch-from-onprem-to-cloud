@@ -6,13 +6,14 @@
 # Specify the following settings:
 locals {
   # Source Managed Service for OpenSearch cluster settings:
-  os_admin_password = "" # Set a password for the OpenSearch admin user.
+  mos_version        = "" # Set desired version of the OpenSearch
+  mos_admin_password = "" # Set a password for the OpenSearch admin user
 
   # Specify these settings ONLY AFTER the clusters are created. Then run the "terraform apply" command again.
   # You should set up endpoints using the GUI to obtain their IDs.
-  source_endpoint_id = "" # Set the source endpoint ID.
-  target_endpoint_id = "" # Set the target endpoint ID.
-  transfer_enabled   = 0  # Set to 1 to enable the creation of transfer.
+  source_endpoint_id = "" # Set the source endpoint ID
+  target_endpoint_id = "" # Set the target endpoint ID
+  transfer_enabled   = 0  # Set to 1 to enable the creation of transfer
 
   # Setting for the YC CLI that allows running CLI command to activate transfer
   profile_name = "" # Name of the YC CLI profile
@@ -76,7 +77,8 @@ resource "yandex_mdb_opensearch_cluster" "opensearch" {
   security_group_ids = [yandex_vpc_security_group.security-group.id]
 
   config {
-    admin_password = local.os_admin_password
+    version        = local.mos_version
+    admin_password = local.mos_admin_password
 
     opensearch {
       node_groups {
